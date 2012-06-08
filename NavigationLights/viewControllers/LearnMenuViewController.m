@@ -1,19 +1,18 @@
 //
-//  MAinMenuViewController.m
+//  LearnMenuViewController.m
 //  NavigationLights
 //
 //  Created by wins Сергей on 08.06.12.
 //  Copyright (c) 2012 LocalizeItMobile.com. All rights reserved.
 //
 
-#import "MAinMenuViewController.h"
 #import "LearnMenuViewController.h"
 
-@interface MAinMenuViewController ()
+@interface LearnMenuViewController ()
 
 @end
 
-@implementation MAinMenuViewController
+@implementation LearnMenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,24 +40,5 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-#pragma mark - User interaction
-
--(IBAction)startLearning:(id)sender{
-    LearnMenuViewController *learnVC = [[LearnMenuViewController alloc] initWithNibName:@"LearnMenuViewController"
-                                                                                 bundle:nil];
-    [[self navigationController] pushViewController:learnVC
-                                           animated:YES];
-    [learnVC release];
-}
-
--(IBAction)doTest:(id)sender{
-    
-}
-
--(IBAction)aboutUS:(id)sender{
-    
-}
-
 
 @end

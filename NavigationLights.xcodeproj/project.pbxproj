@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2A8126671581EBCE00242CA1 /* MAinMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8126651581EBCE00242CA1 /* MAinMenuViewController.m */; };
 		2A8126681581EBCE00242CA1 /* MAinMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8126661581EBCE00242CA1 /* MAinMenuViewController.xib */; };
+		2A81266E1581F9DC00242CA1 /* LearnMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A81266C1581F9DC00242CA1 /* LearnMenuViewController.m */; };
+		2A81266F1581F9DC00242CA1 /* LearnMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A81266D1581F9DC00242CA1 /* LearnMenuViewController.xib */; };
+		2A8126731581FBB500242CA1 /* RotatingBoatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8126711581FBB500242CA1 /* RotatingBoatViewController.m */; };
+		2A8126741581FBB500242CA1 /* RotatingBoatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8126721581FBB500242CA1 /* RotatingBoatViewController.xib */; };
 		2AAE0DDA15810A9B00DE90DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DD915810A9B00DE90DD /* UIKit.framework */; };
 		2AAE0DDC15810A9B00DE90DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DDB15810A9B00DE90DD /* Foundation.framework */; };
 		2AAE0DDE15810A9B00DE90DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DDD15810A9B00DE90DD /* CoreGraphics.framework */; };
@@ -21,6 +25,12 @@
 		2A8126641581EBCE00242CA1 /* MAinMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAinMenuViewController.h; path = viewControllers/MAinMenuViewController.h; sourceTree = "<group>"; };
 		2A8126651581EBCE00242CA1 /* MAinMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAinMenuViewController.m; path = viewControllers/MAinMenuViewController.m; sourceTree = "<group>"; };
 		2A8126661581EBCE00242CA1 /* MAinMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MAinMenuViewController.xib; path = viewControllers/MAinMenuViewController.xib; sourceTree = "<group>"; };
+		2A81266B1581F9DC00242CA1 /* LearnMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LearnMenuViewController.h; path = viewControllers/LearnMenuViewController.h; sourceTree = "<group>"; };
+		2A81266C1581F9DC00242CA1 /* LearnMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LearnMenuViewController.m; path = viewControllers/LearnMenuViewController.m; sourceTree = "<group>"; };
+		2A81266D1581F9DC00242CA1 /* LearnMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LearnMenuViewController.xib; path = viewControllers/LearnMenuViewController.xib; sourceTree = "<group>"; };
+		2A8126701581FBB500242CA1 /* RotatingBoatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RotatingBoatViewController.h; path = viewControllers/RotatingBoatViewController.h; sourceTree = "<group>"; };
+		2A8126711581FBB500242CA1 /* RotatingBoatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RotatingBoatViewController.m; path = viewControllers/RotatingBoatViewController.m; sourceTree = "<group>"; };
+		2A8126721581FBB500242CA1 /* RotatingBoatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RotatingBoatViewController.xib; path = viewControllers/RotatingBoatViewController.xib; sourceTree = "<group>"; };
 		2AAE0DD515810A9B00DE90DD /* NavigationLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAE0DD915810A9B00DE90DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2AAE0DDB15810A9B00DE90DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +57,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A81266A1581F75400242CA1 /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A8126641581EBCE00242CA1 /* MAinMenuViewController.h */,
+				2A8126651581EBCE00242CA1 /* MAinMenuViewController.m */,
+				2A8126661581EBCE00242CA1 /* MAinMenuViewController.xib */,
+				2A81266B1581F9DC00242CA1 /* LearnMenuViewController.h */,
+				2A81266C1581F9DC00242CA1 /* LearnMenuViewController.m */,
+				2A81266D1581F9DC00242CA1 /* LearnMenuViewController.xib */,
+				2A8126701581FBB500242CA1 /* RotatingBoatViewController.h */,
+				2A8126711581FBB500242CA1 /* RotatingBoatViewController.m */,
+				2A8126721581FBB500242CA1 /* RotatingBoatViewController.xib */,
+			);
+			name = viewControllers;
+			sourceTree = "<group>";
+		};
 		2AAE0DCA15810A9B00DE90DD = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +103,10 @@
 		2AAE0DDF15810A9B00DE90DD /* NavigationLights */ = {
 			isa = PBXGroup;
 			children = (
+				2A81266A1581F75400242CA1 /* viewControllers */,
 				2AAE0DE815810A9C00DE90DD /* AppDelegate.h */,
 				2AAE0DE915810A9C00DE90DD /* AppDelegate.m */,
 				2AAE0DE015810A9B00DE90DD /* Supporting Files */,
-				2A8126641581EBCE00242CA1 /* MAinMenuViewController.h */,
-				2A8126651581EBCE00242CA1 /* MAinMenuViewController.m */,
-				2A8126661581EBCE00242CA1 /* MAinMenuViewController.xib */,
 			);
 			path = NavigationLights;
 			sourceTree = "<group>";
@@ -151,6 +175,8 @@
 			files = (
 				2AAE0DE415810A9B00DE90DD /* InfoPlist.strings in Resources */,
 				2A8126681581EBCE00242CA1 /* MAinMenuViewController.xib in Resources */,
+				2A81266F1581F9DC00242CA1 /* LearnMenuViewController.xib in Resources */,
+				2A8126741581FBB500242CA1 /* RotatingBoatViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +190,8 @@
 				2AAE0DE615810A9B00DE90DD /* main.m in Sources */,
 				2AAE0DEA15810A9C00DE90DD /* AppDelegate.m in Sources */,
 				2A8126671581EBCE00242CA1 /* MAinMenuViewController.m in Sources */,
+				2A81266E1581F9DC00242CA1 /* LearnMenuViewController.m in Sources */,
+				2A8126731581FBB500242CA1 /* RotatingBoatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
