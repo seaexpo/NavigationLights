@@ -13,6 +13,7 @@
 		2A81266F1581F9DC00242CA1 /* LearnMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A81266D1581F9DC00242CA1 /* LearnMenuViewController.xib */; };
 		2A8126731581FBB500242CA1 /* RotatingBoatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8126711581FBB500242CA1 /* RotatingBoatViewController.m */; };
 		2A8126741581FBB500242CA1 /* RotatingBoatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8126721581FBB500242CA1 /* RotatingBoatViewController.xib */; };
+		2A812686158217FE00242CA1 /* boat.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A812685158217FE00242CA1 /* boat.png */; };
 		2AAE0DDA15810A9B00DE90DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DD915810A9B00DE90DD /* UIKit.framework */; };
 		2AAE0DDC15810A9B00DE90DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DDB15810A9B00DE90DD /* Foundation.framework */; };
 		2AAE0DDE15810A9B00DE90DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DDD15810A9B00DE90DD /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 		2A8126701581FBB500242CA1 /* RotatingBoatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RotatingBoatViewController.h; path = viewControllers/RotatingBoatViewController.h; sourceTree = "<group>"; };
 		2A8126711581FBB500242CA1 /* RotatingBoatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RotatingBoatViewController.m; path = viewControllers/RotatingBoatViewController.m; sourceTree = "<group>"; };
 		2A8126721581FBB500242CA1 /* RotatingBoatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RotatingBoatViewController.xib; path = viewControllers/RotatingBoatViewController.xib; sourceTree = "<group>"; };
+		2A812685158217FE00242CA1 /* boat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boat.png; sourceTree = SOURCE_ROOT; };
 		2AAE0DD515810A9B00DE90DD /* NavigationLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAE0DD915810A9B00DE90DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2AAE0DDB15810A9B00DE90DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +105,7 @@
 		2AAE0DDF15810A9B00DE90DD /* NavigationLights */ = {
 			isa = PBXGroup;
 			children = (
+				2A812685158217FE00242CA1 /* boat.png */,
 				2A81266A1581F75400242CA1 /* viewControllers */,
 				2AAE0DE815810A9C00DE90DD /* AppDelegate.h */,
 				2AAE0DE915810A9C00DE90DD /* AppDelegate.m */,
@@ -177,6 +180,7 @@
 				2A8126681581EBCE00242CA1 /* MAinMenuViewController.xib in Resources */,
 				2A81266F1581F9DC00242CA1 /* LearnMenuViewController.xib in Resources */,
 				2A8126741581FBB500242CA1 /* RotatingBoatViewController.xib in Resources */,
+				2A812686158217FE00242CA1 /* boat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

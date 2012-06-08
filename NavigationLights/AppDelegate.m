@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MAinMenuViewController.h"
+#import "RotatingBoatViewController.h"
 
 @implementation AppDelegate
 
@@ -26,7 +27,10 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    MAinMenuViewController *viewController = [[[MAinMenuViewController alloc] initWithNibName:@"MAinMenuViewController" bundle:nil] autorelease];
+//    MAinMenuViewController *viewController = [[[MAinMenuViewController alloc] initWithNibName:@"MAinMenuViewController" bundle:nil] autorelease];
+
+    RotatingBoatViewController *viewController = [[[RotatingBoatViewController alloc] initWithNibName:@"RotatingBoatViewController" bundle:nil] autorelease];
+    
     _navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = _navigationController;
     [self.window makeKeyAndVisible];

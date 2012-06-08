@@ -10,4 +10,8 @@
 
 @interface RotatingBoatViewController : UIViewController
 
+@property(strong,nonatomic) IBOutlet UIImageView *rotateImage;
+
+-(IBAction)longPress:(id)sender;
+
 @end
