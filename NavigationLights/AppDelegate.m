@@ -29,6 +29,10 @@
     // Override point for customization after application launch.
 //    MAinMenuViewController *viewController = [[[MAinMenuViewController alloc] initWithNibName:@"MAinMenuViewController" bundle:nil] autorelease];
 
+    NSArray *boats = [[DataSingleton sharedSingleton] fetchAllItemsForEntity:@"Boat"
+                                     andApplySortDescriptor:@""
+                                              withAscending:YES];
+    
     RotatingBoatViewController *viewController = [[[RotatingBoatViewController alloc] initWithNibName:@"RotatingBoatViewController" bundle:nil] autorelease];
     
     _navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];

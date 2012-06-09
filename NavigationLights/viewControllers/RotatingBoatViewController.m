@@ -61,7 +61,24 @@
     
 }
 
+//-(float)degreesToRotateObjectWithPosition:(CGPoint)objPos andTouchPoint:(CGPoint)touchPoint{
+//    
+//    float dX = touchPoint.x-objPos.x;        // distance along X
+//    float dY = touchPoint.y-objPos.y;        // distance along Y
+//    float radians = atan2(dY, dX);          // tan = opp / adj
+//    
+//    //Now we have to convert radians to degrees:
+//    float degrees = radians*M_PI/360;
+//    
+//    return degrees;
+//}
+
 -(IBAction)longPress:(id)sender{
+    
+//    CGAffineTransform current = _rotateImage.transform;
+//    
+//    [_rotateImage setTransform:CGAffineTransformRotate(current,[self degreesToRotateObjectWithPosition:_rotateImage.center andTouchPoint:[sender locationInView:self.view]])];
+
     
     CGPoint touch = [sender locationInView:self.view];
     CGPoint center = _rotateImage.center; 

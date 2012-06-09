@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Boat" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="length" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="torches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Torch" inverseName="boat" inverseEntity="Torch" syncable="YES"/>
+    </entity>
+    <entity name="Color" representedClassName="Color" syncable="YES">
+        <attribute name="blue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="green" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="red" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="torches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Torch" inverseName="color" inverseEntity="Torch" syncable="YES"/>
+    </entity>
+    <entity name="Torch" representedClassName="Torch" syncable="YES">
+        <attribute name="coord_x" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="coord_y" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="coord_z" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="boat" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Boat" inverseName="torches" inverseEntity="Boat" syncable="YES"/>
+        <relationship name="color" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Color" inverseName="torches" inverseEntity="Color" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Boat" positionX="90" positionY="294" width="128" height="135"/>
+        <element name="Color" positionX="-209" positionY="300" width="128" height="105"/>
+        <element name="Torch" positionX="-54" positionY="297" width="128" height="135"/>
+    </elements>
+</model>

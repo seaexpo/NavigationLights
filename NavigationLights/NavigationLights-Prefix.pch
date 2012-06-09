@@ -11,4 +11,16 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "DataSingleton.h"
+#endif
+
+//в случае отладки - выводим отладочную информацию в консоль, в противном случае "делаем ничего"
+#ifdef DEBUG
+
+#define DBLOG(...) NSLog(__VA_ARGS__)
+
+#else
+
+#define DBLOG(...)
+
 #endif
