@@ -18,5 +18,9 @@
 @dynamic name;
 @dynamic boat;
 @dynamic color;
+//устанавливаем геттер и сеттер методы
+@synthesize radius=_radius;
+@synthesize betta=_betta;
+@synthesize color4draw;
 
 @end

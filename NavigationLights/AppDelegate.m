@@ -25,13 +25,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSArray *boats = [[DataSingleton sharedSingleton] fetchAllItemsForEntity:@"Boat"
+                                                      andApplySortDescriptor:@""
+                                                               withAscending:YES];
+
+    if([boats count]==0)
+        [[DataSingleton sharedSingleton] addTestData];
+    
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 //    MAinMenuViewController *viewController = [[[MAinMenuViewController alloc] initWithNibName:@"MAinMenuViewController" bundle:nil] autorelease];
 
-    NSArray *boats = [[DataSingleton sharedSingleton] fetchAllItemsForEntity:@"Boat"
-                                     andApplySortDescriptor:@""
-                                              withAscending:YES];
+//    NSArray *boats = [[DataSingleton sharedSingleton] addTestData];
     
     RotatingBoatViewController *viewController = [[[RotatingBoatViewController alloc] initWithNibName:@"RotatingBoatViewController" bundle:nil] autorelease];
     

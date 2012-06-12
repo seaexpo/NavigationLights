@@ -19,5 +19,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSManagedObject *boat;
 @property (nonatomic, retain) Color *color;
+//далее добавим скалярных величин для удобства - они не хранятся в базе, инициализируются там, где это нужно. При обновлении класса - пропадут, пересоздать руками.
+@property (nonatomic, assign) CGFloat radius;//гипотенуза
+@property (nonatomic, assign) CGFloat betta;//угол в полярной системе координат
+@property (nonatomic, retain) UIColor *color4draw;
 
 @end

@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Boat.h"
+#import "TorchesProjectionImage.h"
 
 @interface RotatingBoatViewController : UIViewController
 
 @property(strong,nonatomic) IBOutlet UIImageView *rotateImage;
+@property(strong,nonatomic) IBOutlet TorchesProjectionImage *projection;
+
+@property(strong,nonatomic) Boat *boat;
 
 -(IBAction)longPress:(id)sender;
 

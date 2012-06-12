@@ -14,9 +14,12 @@
 
 @implementation RotatingBoatViewController
 
-@synthesize rotateImage=_rotateImage;
+@synthesize rotateImage=_rotateImage,
+boat=_boat,
+projection=_projection;
 
 -(void)dealloc{
+    [_boat release];
     [_rotateImage release];
     [super dealloc];
 }
@@ -34,11 +37,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSArray *boats = [[DataSingleton sharedSingleton] fetchAllItemsForEntity:@"Boat"
+                                                      andApplySortDescriptor:@""
+                                                               withAscending:YES];
+    _boat = [boats objectAtIndex:0];
     
     for (UIGestureRecognizer *rec in [[self view] gestureRecognizers]) //переберем все
         if ([rec class]==[UILongPressGestureRecognizer class]) //найдем нужного нам типа, он будет один
             [(UILongPressGestureRecognizer*)rec setMinimumPressDuration:0.1];//установим минимальную продолжительность нажатия
-
+    
+    //[_projection initWithFrame:[_projection frame] andBoat:_boat]; //объект уже создан, просто инициализируем его
+    _projection = [[TorchesProjectionImage alloc] initWithFrame:CGRectMake(80, 
+                                                                           20, 
+                                                                           160, 
+                                                                           160)
+                                                        andBoat:_boat];
+    [[self view] addSubview:_projection];
+    [_projection setNeedsDisplay];
+    
+    
     
 }
 
@@ -56,8 +73,10 @@
 
 #pragma mark - User interaction
 
-- (void)rotateImage:(UIImageView *)image withAngle:(float)newAngle
-{ image.transform = CGAffineTransformMakeRotation(newAngle);
+- (void)rotateImage:(UIImageView *)image withAngle:(float)newAngle{ 
+    image.transform = CGAffineTransformMakeRotation(newAngle);
+    [_projection setAngle:newAngle];
+    
     
 }
 

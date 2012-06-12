@@ -22,6 +22,8 @@
 		2A8126F515838F8400242CA1 /* Torch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8126F415838F8400242CA1 /* Torch.m */; };
 		2A8126F8158392A300242CA1 /* minesweeper.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A8126F6158392A300242CA1 /* minesweeper.png */; };
 		2A8126F9158392A300242CA1 /* minesweeper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A8126F7158392A300242CA1 /* minesweeper@2x.png */; };
+		2A8127141583AD8300242CA1 /* TorchesProjectionImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8127131583AD8300242CA1 /* TorchesProjectionImage.m */; };
+		2A8127161584F50C00242CA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8127151584F50C00242CA1 /* QuartzCore.framework */; };
 		2AAE0DDA15810A9B00DE90DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DD915810A9B00DE90DD /* UIKit.framework */; };
 		2AAE0DDC15810A9B00DE90DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DDB15810A9B00DE90DD /* Foundation.framework */; };
 		2AAE0DDE15810A9B00DE90DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE0DDD15810A9B00DE90DD /* CoreGraphics.framework */; };
@@ -55,6 +57,9 @@
 		2A8126F6158392A300242CA1 /* minesweeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = minesweeper.png; path = images/minesweeper.png; sourceTree = "<group>"; };
 		2A8126F7158392A300242CA1 /* minesweeper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "minesweeper@2x.png"; path = "images/minesweeper@2x.png"; sourceTree = "<group>"; };
 		2A8126FA1583945D00242CA1 /* NavigationLights.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = NavigationLights.sqlite; sourceTree = "<group>"; };
+		2A8127121583AD8300242CA1 /* TorchesProjectionImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorchesProjectionImage.h; sourceTree = "<group>"; };
+		2A8127131583AD8300242CA1 /* TorchesProjectionImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorchesProjectionImage.m; sourceTree = "<group>"; };
+		2A8127151584F50C00242CA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2AAE0DD515810A9B00DE90DD /* NavigationLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAE0DD915810A9B00DE90DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2AAE0DDB15810A9B00DE90DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A8127161584F50C00242CA1 /* QuartzCore.framework in Frameworks */,
 				2A81268F158226C500242CA1 /* CoreData.framework in Frameworks */,
 				2AAE0DDA15810A9B00DE90DD /* UIKit.framework in Frameworks */,
 				2AAE0DDC15810A9B00DE90DD /* Foundation.framework in Frameworks */,
@@ -144,6 +150,7 @@
 		2AAE0DD815810A9B00DE90DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A8127151584F50C00242CA1 /* QuartzCore.framework */,
 				2A81268E158226C500242CA1 /* CoreData.framework */,
 				2AAE0DD915810A9B00DE90DD /* UIKit.framework */,
 				2AAE0DDB15810A9B00DE90DD /* Foundation.framework */,
@@ -161,6 +168,8 @@
 				2A81266A1581F75400242CA1 /* viewControllers */,
 				2AAE0DE815810A9C00DE90DD /* AppDelegate.h */,
 				2AAE0DE915810A9C00DE90DD /* AppDelegate.m */,
+				2A8127121583AD8300242CA1 /* TorchesProjectionImage.h */,
+				2A8127131583AD8300242CA1 /* TorchesProjectionImage.m */,
 				2AAE0DE015810A9B00DE90DD /* Supporting Files */,
 			);
 			path = NavigationLights;
@@ -255,6 +264,7 @@
 				2A8126E715835A7100242CA1 /* Boat.m in Sources */,
 				2A8126F115835ADA00242CA1 /* Color.m in Sources */,
 				2A8126F515838F8400242CA1 /* Torch.m in Sources */,
+				2A8127141583AD8300242CA1 /* TorchesProjectionImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
