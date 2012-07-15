@@ -67,19 +67,29 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
     
     //Нарисуем на ватерлинии кружки фонарей
     CGFloat coord_x = 0;
+    CGFloat visAngle = -_angle/M_PI*180;
+    
+    NSLog(@"%f",visAngle);
     for (Torch *torch in _torches) {
-        coord_x = cosf([torch betta]+_angle);
-        coord_x = coord_x*[torch radius];
-        coord_x = coord_x*boatLength;
-        coord_x = x + coord_x;
-        CGContextSetRGBStrokeColor(ctx, 
-                                   [[[torch color] red]     floatValue],
-                                   [[[torch color] green]   floatValue],
-                                   [[[torch color] blue]    floatValue],
-                                   0.8);
-        CGContextAddArc(ctx, coord_x, y, 10, radians(0), radians(360), false);
         
-        CGContextStrokePath(ctx);
+        if (([[torch visAngleMin] floatValue]<=visAngle && [[torch visAngleMax] floatValue]>=visAngle) ||
+            ([[torch visAngleMin] floatValue]>=visAngle && [[torch visAngleMax] floatValue]<=visAngle))
+        {
+            
+            
+            coord_x = cosf([torch betta]+_angle);// пользуемся четной функцией, поэтому инверсии угла поворота не замечаем
+            coord_x = coord_x*[torch radius];
+            coord_x = coord_x*boatLength;
+            coord_x = x + coord_x;
+            CGContextSetRGBStrokeColor(ctx, 
+                                       [[[torch color] red]     floatValue],
+                                       [[[torch color] green]   floatValue],
+                                       [[[torch color] blue]    floatValue],
+                                       0.8);
+            CGContextAddArc(ctx, coord_x, y, 5, radians(0), radians(360), true);
+            
+            CGContextStrokePath(ctx);
+        }
     }
     
 //    CGContextSetRGBStrokeColor(ctx, 0.6, 0.6, 0.6, 0.9);

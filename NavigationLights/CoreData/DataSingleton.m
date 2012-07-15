@@ -263,6 +263,9 @@ static DataSingleton *sharedSingleton = nil;
         [torch setCoord_y:    [NSNumber numberWithFloat:29.0]];
         [torch setCoord_z:    [NSNumber numberWithFloat:40.0]];
         
+        [torch setVisAngleMin:[NSNumber numberWithFloat: -70]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat: -150]];
+        
         [minesweeper addTorchesObject:torch];
         [torch setBoat:minesweeper];
         //2
@@ -276,6 +279,9 @@ static DataSingleton *sharedSingleton = nil;
         [torch setCoord_y:    [NSNumber numberWithFloat:-29.0]];
         [torch setCoord_z:    [NSNumber numberWithFloat:40.0]];
         
+        [torch setVisAngleMin:[NSNumber numberWithFloat:-100]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat: -30]];
+        
         [minesweeper addTorchesObject:torch];
         [torch setBoat:minesweeper];
         //3
@@ -288,6 +294,9 @@ static DataSingleton *sharedSingleton = nil;
         [torch setCoord_x:    [NSNumber numberWithFloat:-360.0]];
         [torch setCoord_y:    [NSNumber numberWithFloat:0.0]];
         [torch setCoord_z:    [NSNumber numberWithFloat:40.0]];
+        
+        [torch setVisAngleMin:[NSNumber numberWithFloat:  10]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat: 170]];
         
         [minesweeper addTorchesObject:torch];
         [torch setBoat:minesweeper];

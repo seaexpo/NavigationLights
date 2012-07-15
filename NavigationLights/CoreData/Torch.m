@@ -23,4 +23,8 @@
 @synthesize betta=_betta;
 @synthesize color4draw;
 
+//углы видимости
+@dynamic visAngleMin;
+@dynamic visAngleMax;
+
 @end

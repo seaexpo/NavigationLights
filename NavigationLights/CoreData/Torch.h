@@ -24,4 +24,9 @@
 @property (nonatomic, assign) CGFloat betta;//угол в полярной системе координат
 @property (nonatomic, retain) UIColor *color4draw;
 
+//углы видимости
+@property (nonatomic, retain) NSNumber * visAngleMin;
+@property (nonatomic, retain) NSNumber * visAngleMax;
+
+
 @end

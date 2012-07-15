@@ -20,12 +20,14 @@
         <attribute name="coord_y" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="coord_z" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visAngleMax" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="visAngleMin" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="boat" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Boat" inverseName="torches" inverseEntity="Boat" syncable="YES"/>
         <relationship name="color" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Color" inverseName="torches" inverseEntity="Color" syncable="YES"/>
     </entity>
     <elements>
         <element name="Boat" positionX="90" positionY="294" width="128" height="135"/>
         <element name="Color" positionX="-209" positionY="300" width="128" height="105"/>
-        <element name="Torch" positionX="-54" positionY="297" width="128" height="135"/>
+        <element name="Torch" positionX="-54" positionY="297" width="128" height="165"/>
     </elements>
 </model>
