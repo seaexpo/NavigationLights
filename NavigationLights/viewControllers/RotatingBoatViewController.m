@@ -46,7 +46,6 @@ projection=_projection;
         if ([rec class]==[UILongPressGestureRecognizer class]) //найдем нужного нам типа, он будет один
             [(UILongPressGestureRecognizer*)rec setMinimumPressDuration:0.1];//установим минимальную продолжительность нажатия
     
-    //[_projection initWithFrame:[_projection frame] andBoat:_boat]; //объект уже создан, просто инициализируем его
     _projection = [[TorchesProjectionImage alloc] initWithFrame:CGRectMake(80, 
                                                                            20, 
                                                                            160, 
@@ -54,6 +53,8 @@ projection=_projection;
                                                         andBoat:_boat];
     [[self view] addSubview:_projection];
     [_projection setNeedsDisplay];
+    
+    [angleLabel setText:@"0"];
     
     
     
@@ -76,6 +77,8 @@ projection=_projection;
 - (void)rotateImage:(UIImageView *)image withAngle:(float)newAngle{ 
     image.transform = CGAffineTransformMakeRotation(newAngle);
     [_projection setAngle:newAngle];
+    [angleLabel setText:[NSString stringWithFormat: @"%.2f",//выводим только угол с одним знаком после запятой
+                         -newAngle/M_PI*180]];//приведем угол в удобный вид
     
     
 }

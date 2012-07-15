@@ -16,6 +16,7 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
 @synthesize boat=_boat,angle=_angle;
 
 #define TAG_PREFIX 5555
+#define scaleFactor  1.8  //2 max, 1 min
 
 - (id)initWithFrame:(CGRect)frame andBoat:(Boat*)aBoat{
     
@@ -29,7 +30,6 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
         //инициализация геометрических констант
         for (Torch *torch in _torches) {
             [torch setRadius:sqrtf(powf([[torch coord_x] floatValue], 2)+powf([[torch coord_y] floatValue], 2))];
-            [torch setBetta:([[torch coord_x] floatValue]==0)?M_PI_2:atanf([[torch coord_y] floatValue]/[[torch coord_x] floatValue])];
             [torch setBetta:acosf([[torch coord_x] floatValue]/[torch radius])*//косинус-четная функция
              (([[torch coord_y] floatValue]<0)?(-1):1)];
             [torch setColor4draw:[UIColor colorWithRed:[[[torch color] red]     floatValue]
@@ -50,12 +50,16 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
     CGRect parentViewBounds = self.bounds;
     CGFloat x = CGRectGetWidth(parentViewBounds)/2;
     CGFloat y = CGRectGetHeight(parentViewBounds)/2;
-    CGFloat boatLength = x/(([[_boat length] floatValue]==0)?
+    CGFloat boatLength = 1/(([[_boat length] floatValue]==0)?
                             1://при незаполненной длине - чтобы не вылетало
                             [[_boat length] floatValue]);//нормировка на длину
+
+    //    Нормируем на длину, потому как у тестовой модели все по отношению к длине, это ошибка.
+    //    CGFloat boatHeight = 1/(([[_boat height] floatValue]==0)?
+    //                            1:[[_boat height] floatValue]);//нормировка на высоту
+    
     
     // Получим и очистим контекст рисования
-    
     CGContextClearRect(ctx, [self frame]);
     
     //Нарисуем ватерлинию
@@ -67,26 +71,30 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
     
     //Нарисуем на ватерлинии кружки фонарей
     CGFloat coord_x = 0;
+    CGFloat coord_y = 0;
     CGFloat visAngle = -_angle/M_PI*180;
     
     NSLog(@"%f",visAngle);
     for (Torch *torch in _torches) {
         
-        if (([[torch visAngleMin] floatValue]<=visAngle && [[torch visAngleMax] floatValue]>=visAngle) ||
-            ([[torch visAngleMin] floatValue]>=visAngle && [[torch visAngleMax] floatValue]<=visAngle))
+        if ([[torch visAngleMin] floatValue]<=visAngle && [[torch visAngleMax] floatValue]>=visAngle) 
+//            ||
+//            ([[torch visAngleMin] floatValue]>=visAngle && [[torch visAngleMax] floatValue]<=visAngle))
         {
             
             
             coord_x = cosf([torch betta]+_angle);// пользуемся четной функцией, поэтому инверсии угла поворота не замечаем
             coord_x = coord_x*[torch radius];
             coord_x = coord_x*boatLength;
-            coord_x = x + coord_x;
+            coord_x = x*(1 + scaleFactor*coord_x);
+            
+            coord_y = y*(1 - scaleFactor*[[torch coord_z] floatValue]*boatLength);
             CGContextSetRGBStrokeColor(ctx, 
                                        [[[torch color] red]     floatValue],
                                        [[[torch color] green]   floatValue],
                                        [[[torch color] blue]    floatValue],
                                        0.8);
-            CGContextAddArc(ctx, coord_x, y, 5, radians(0), radians(360), true);
+            CGContextAddArc(ctx, coord_x, coord_y, 5, radians(0), radians(360), true);
             
             CGContextStrokePath(ctx);
         }

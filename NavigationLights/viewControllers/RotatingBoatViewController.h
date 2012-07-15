@@ -10,7 +10,9 @@
 #import "Boat.h"
 #import "TorchesProjectionImage.h"
 
-@interface RotatingBoatViewController : UIViewController
+@interface RotatingBoatViewController : UIViewController{
+    IBOutlet UILabel *angleLabel;// для вывода отладочной информации об угле
+}
 
 @property(strong,nonatomic) IBOutlet UIImageView *rotateImage;
 @property(strong,nonatomic) IBOutlet TorchesProjectionImage *projection;

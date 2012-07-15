@@ -237,6 +237,8 @@ static DataSingleton *sharedSingleton = nil;
     [whiteColor setGreen: [NSNumber numberWithFloat:1.0]];
     [whiteColor setBlue:  [NSNumber numberWithFloat:1.0]];
     
+    //!!! Важно так же связывать обратными ссылками объекты цветов и фонарей
+    
     
     
     //добавим минный тральщик
@@ -259,12 +261,12 @@ static DataSingleton *sharedSingleton = nil;
         [torch setColor:redColor];
         [redColor addTorchesObject:torch];//указываем обратную ссылку, один цвет используется во многих фонарях
         
-        [torch setCoord_x:    [NSNumber numberWithFloat:263.0]];
-        [torch setCoord_y:    [NSNumber numberWithFloat:29.0]];
-        [torch setCoord_z:    [NSNumber numberWithFloat:40.0]];
+        [torch setCoord_x:    [NSNumber numberWithFloat: 263.0]];
+        [torch setCoord_y:    [NSNumber numberWithFloat: -50.0]];
+        [torch setCoord_z:    [NSNumber numberWithFloat:  40.0]];
         
-        [torch setVisAngleMin:[NSNumber numberWithFloat: -70]];
-        [torch setVisAngleMax:[NSNumber numberWithFloat: -150]];
+        [torch setVisAngleMin:[NSNumber numberWithFloat: -150]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat: -70]];
         
         [minesweeper addTorchesObject:torch];
         [torch setBoat:minesweeper];
@@ -275,9 +277,9 @@ static DataSingleton *sharedSingleton = nil;
         [torch setColor:greenColor];
         [greenColor addTorchesObject:torch];
         
-        [torch setCoord_x:    [NSNumber numberWithFloat:263.0]];
-        [torch setCoord_y:    [NSNumber numberWithFloat:-29.0]];
-        [torch setCoord_z:    [NSNumber numberWithFloat:40.0]];
+        [torch setCoord_x:    [NSNumber numberWithFloat: 263.0]];
+        [torch setCoord_y:    [NSNumber numberWithFloat:  50.0]];
+        [torch setCoord_z:    [NSNumber numberWithFloat:  40.0]];
         
         [torch setVisAngleMin:[NSNumber numberWithFloat:-100]];
         [torch setVisAngleMax:[NSNumber numberWithFloat: -30]];
@@ -300,6 +302,92 @@ static DataSingleton *sharedSingleton = nil;
         
         [minesweeper addTorchesObject:torch];
         [torch setBoat:minesweeper];
+        
+        //4
+        torch = (Torch*)[NSEntityDescription insertNewObjectForEntityForName:@"Torch" inManagedObjectContext:[self managedObjectContext]];
+        [torch setName:@"Передний центральный белый"];
+        
+        [torch setColor:whiteColor];
+        [whiteColor addTorchesObject:torch];
+        
+        [torch setCoord_x:    [NSNumber numberWithFloat:-200.0]];
+        [torch setCoord_y:    [NSNumber numberWithFloat:   0.0]];
+        [torch setCoord_z:    [NSNumber numberWithFloat: 130.0]];
+        
+        [torch setVisAngleMin:[NSNumber numberWithFloat:-180]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat:  20]];
+        
+        [minesweeper addTorchesObject:torch];
+        [torch setBoat:minesweeper];
+        
+        //4.5
+        torch = (Torch*)[NSEntityDescription insertNewObjectForEntityForName:@"Torch" inManagedObjectContext:[self managedObjectContext]];
+        [torch setName:@"Передний центральный белый 2"];
+        
+        [torch setColor:whiteColor];
+        [whiteColor addTorchesObject:torch];
+        
+        [torch setCoord_x:    [NSNumber numberWithFloat:-200.0]];
+        [torch setCoord_y:    [NSNumber numberWithFloat:   0.0]];
+        [torch setCoord_z:    [NSNumber numberWithFloat: 130.0]];
+        
+        [torch setVisAngleMin:[NSNumber numberWithFloat: 160]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat: 180]];
+        
+        [minesweeper addTorchesObject:torch];
+        [torch setBoat:minesweeper];
+        
+        //5
+        torch = (Torch*)[NSEntityDescription insertNewObjectForEntityForName:@"Torch" inManagedObjectContext:[self managedObjectContext]];
+        [torch setName:@"Центральный зеленый центр"];
+        
+        [torch setColor:greenColor];
+        [greenColor addTorchesObject:torch];
+        
+        [torch setCoord_x:    [NSNumber numberWithFloat:   1.0]];
+        [torch setCoord_y:    [NSNumber numberWithFloat:   0.0]];
+        [torch setCoord_z:    [NSNumber numberWithFloat: 270.0]];
+        
+        [torch setVisAngleMin:[NSNumber numberWithFloat: -180]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat:  180]];
+        
+        [minesweeper addTorchesObject:torch];
+        [torch setBoat:minesweeper];
+        
+        //6
+        torch = (Torch*)[NSEntityDescription insertNewObjectForEntityForName:@"Torch" inManagedObjectContext:[self managedObjectContext]];
+        [torch setName:@"Центральный зеленый левый"];
+        
+        [torch setColor:greenColor];
+        [greenColor addTorchesObject:torch];
+        
+        [torch setCoord_x:    [NSNumber numberWithFloat:   0.0]];
+        [torch setCoord_y:    [NSNumber numberWithFloat:  80.0]];
+        [torch setCoord_z:    [NSNumber numberWithFloat: 160.0]];
+        
+        [torch setVisAngleMin:[NSNumber numberWithFloat:-180]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat: 180]];
+        
+        [minesweeper addTorchesObject:torch];
+        [torch setBoat:minesweeper];
+        
+        //7
+        torch = (Torch*)[NSEntityDescription insertNewObjectForEntityForName:@"Torch" inManagedObjectContext:[self managedObjectContext]];
+        [torch setName:@"Центральный зеленый правый"];
+        
+        [torch setColor:greenColor];
+        [greenColor addTorchesObject:torch];
+        
+        [torch setCoord_x:    [NSNumber numberWithFloat:   0.0]];
+        [torch setCoord_y:    [NSNumber numberWithFloat: -80.0]];
+        [torch setCoord_z:    [NSNumber numberWithFloat: 160.0]];
+        
+        [torch setVisAngleMin:[NSNumber numberWithFloat:-180]];
+        [torch setVisAngleMax:[NSNumber numberWithFloat: 180]];
+        
+        [minesweeper addTorchesObject:torch];
+        [torch setBoat:minesweeper];
+        
     }
     
     [self saveAll];
