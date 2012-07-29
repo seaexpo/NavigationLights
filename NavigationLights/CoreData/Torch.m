@@ -22,6 +22,7 @@
 @synthesize radius=_radius;
 @synthesize betta=_betta;
 @synthesize color4draw;
+@synthesize gradient;
 
 //углы видимости
 @dynamic visAngleMin;

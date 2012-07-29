@@ -22,7 +22,8 @@
 //далее добавим скалярных величин для удобства - они не хранятся в базе, инициализируются там, где это нужно. При обновлении класса - пропадут, пересоздать руками.
 @property (nonatomic, assign) CGFloat radius;//гипотенуза
 @property (nonatomic, assign) CGFloat betta;//угол в полярной системе координат
-@property (nonatomic, retain) UIColor *color4draw;
+@property (nonatomic, retain) UIColor *color4draw;//для рисования просто цветом
+@property (nonatomic, assign) CGGradientRef gradient; //для рисования градиентом
 
 //углы видимости
 @property (nonatomic, retain) NSNumber * visAngleMin;

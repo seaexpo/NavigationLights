@@ -18,6 +18,11 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
 #define TAG_PREFIX 5555
 #define scaleFactor  1.8  //2 max, 1 min
 
+#define background_color_red    0.0 / 255.0
+#define background_color_green  50.0 / 255.0
+#define background_color_blue   126.0 / 255.0
+#define background_color_alfa   1.00
+
 - (id)initWithFrame:(CGRect)frame andBoat:(Boat*)aBoat{
     
     self = [super initWithFrame:frame];
@@ -36,6 +41,26 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
                                                  green:[[[torch color] green]   floatValue]
                                                   blue:[[[torch color] blue]    floatValue]
                                                  alpha:0.8]];
+            
+            
+            CGFloat colors[] =
+            {
+                [[[torch color] red]     floatValue],
+                [[[torch color] green]   floatValue],
+                [[[torch color] blue]    floatValue],
+                1.00,//цвет фонаря
+                background_color_red,
+                background_color_green,
+                background_color_blue,
+                background_color_alfa,//цвет фона
+            };//массив перехода цветов
+            
+            [torch setGradient: CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(),
+                                                                    colors,
+                                                                    nil, 
+                                                                    sizeof(colors)/(sizeof(colors[0])*3))];
+            
+            
                                   
         }
     }
@@ -78,11 +103,32 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
     for (Torch *torch in _torches) {
         
         if ([[torch visAngleMin] floatValue]<=visAngle && [[torch visAngleMax] floatValue]>=visAngle) 
-//            ||
-//            ([[torch visAngleMin] floatValue]>=visAngle && [[torch visAngleMax] floatValue]<=visAngle))
         {
             
-            
+//градиент из пнимера
+//            CGFloat colors[] =
+//            {
+//                204.0 / 255.0, 224.0 / 255.0, 244.0 / 255.0, 1.00,
+//                0.0 / 255.0,  50.0 / 255.0, 126.0 / 255.0, 1.00,
+//            };
+//            CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(),
+//                                                                         colors,
+//                                                                         nil, 
+//                                                                         sizeof(colors)/(sizeof(colors[0])*4));
+//            
+//            CGContextDrawRadialGradient(ctx, 
+//                                        gradient, 
+//                                        CGPointMake(50, 50),
+//                                        20, 
+//                                        CGPointMake(70, 70),
+//                                        50, 
+//                                        kCGGradientDrawsBeforeStartLocation);
+//
+//            
+//            
+//            
+//            
+//            
             coord_x = cosf([torch betta]+_angle);// пользуемся четной функцией, поэтому инверсии угла поворота не замечаем
             coord_x = coord_x*[torch radius];
             coord_x = coord_x*boatLength;
@@ -99,35 +145,6 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
             CGContextStrokePath(ctx);
         }
     }
-    
-//    CGContextSetRGBStrokeColor(ctx, 0.6, 0.6, 0.6, 0.9);
-//    CGContextSetRGBFillColor(ctx, 0, 0, 255, 0.1);
-//    CGContextFillEllipseInRect(ctx, CGRectMake(25, 10, 25, 25));
-    
-//    CGFloat colors[] =
-//    {
-//        204.0 / 255.0, 224.0 / 255.0, 244.0 / 255.0, 1.00,
-//        29.0 / 255.0, 156.0 / 255.0, 215.0 / 255.0, 1.00,
-//        0.0 / 255.0,  50.0 / 255.0, 126.0 / 255.0, 1.00,
-//    };
-//    CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(),
-//                                                                 colors,
-//                                                                 nil, 
-//                                                                 sizeof(colors)/(sizeof(colors[0])*4));
-//    
-//    CGContextSetRGBFillColor(ctx, 0, 0, 0.6, 0.1);
-//    CGContextFillEllipseInRect(ctx, CGRectMake(10.0, 10.0, 100.0, 100.0));
-//    CGContextDrawRadialGradient(ctx, 
-//                                gradient, 
-//                                CGPointMake(50, 50),
-//                                10, 
-//                                CGPointMake(70, 70),
-//                                50, 
-//                                kCGGradientDrawsBeforeStartLocation);
-
-    
-
-    
 }
 
 -(void)setAngle:(float)anAngle{
