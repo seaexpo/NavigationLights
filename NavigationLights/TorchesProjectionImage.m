@@ -21,7 +21,12 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
 #define background_color_red    0.0 / 255.0
 #define background_color_green  50.0 / 255.0
 #define background_color_blue   126.0 / 255.0
-#define background_color_alfa   1.00
+#define background_color_alfa   0.4
+
+#define torch_alfa              0.9
+
+#define torch_radius_min        1
+#define torch_radius_max        8
 
 - (id)initWithFrame:(CGRect)frame andBoat:(Boat*)aBoat{
     
@@ -40,7 +45,7 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
             [torch setColor4draw:[UIColor colorWithRed:[[[torch color] red]     floatValue]
                                                  green:[[[torch color] green]   floatValue]
                                                   blue:[[[torch color] blue]    floatValue]
-                                                 alpha:0.8]];
+                                                 alpha:torch_alfa]];
             
             
             CGFloat colors[] =
@@ -88,11 +93,13 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
     CGContextClearRect(ctx, [self frame]);
     
     //Нарисуем ватерлинию
+    /*
     CGContextSetLineWidth(ctx, 5 );
     CGContextSetRGBStrokeColor(ctx, 1.0, 1.0, 1.0, 0.5);
     CGContextMoveToPoint(ctx, 0, y);
     CGContextAddLineToPoint(ctx, 2*x, y);
     CGContextStrokePath(ctx);
+     */
     
     //Нарисуем на ватерлинии кружки фонарей
     CGFloat coord_x = 0;
@@ -104,45 +111,36 @@ static inline float radians(double degrees) { return degrees * M_PI / 180; }
         
         if ([[torch visAngleMin] floatValue]<=visAngle && [[torch visAngleMax] floatValue]>=visAngle) 
         {
+                        
             
-//градиент из пнимера
-//            CGFloat colors[] =
-//            {
-//                204.0 / 255.0, 224.0 / 255.0, 244.0 / 255.0, 1.00,
-//                0.0 / 255.0,  50.0 / 255.0, 126.0 / 255.0, 1.00,
-//            };
-//            CGGradientRef gradient = CGGradientCreateWithColorComponents(CGColorSpaceCreateDeviceRGB(),
-//                                                                         colors,
-//                                                                         nil, 
-//                                                                         sizeof(colors)/(sizeof(colors[0])*4));
-//            
-//            CGContextDrawRadialGradient(ctx, 
-//                                        gradient, 
-//                                        CGPointMake(50, 50),
-//                                        20, 
-//                                        CGPointMake(70, 70),
-//                                        50, 
-//                                        kCGGradientDrawsBeforeStartLocation);
-//
-//            
-//            
-//            
-//            
-//            
-            coord_x = cosf([torch betta]+_angle);// пользуемся четной функцией, поэтому инверсии угла поворота не замечаем
-            coord_x = coord_x*[torch radius];
-            coord_x = coord_x*boatLength;
-            coord_x = x*(1 + scaleFactor*coord_x);
-            
-            coord_y = y*(1 - scaleFactor*[[torch coord_z] floatValue]*boatLength);
-            CGContextSetRGBStrokeColor(ctx, 
-                                       [[[torch color] red]     floatValue],
-                                       [[[torch color] green]   floatValue],
-                                       [[[torch color] blue]    floatValue],
-                                       0.8);
-            CGContextAddArc(ctx, coord_x, coord_y, 5, radians(0), radians(360), true);
-            
-            CGContextStrokePath(ctx);
+            {
+                coord_x = cosf([torch betta]+_angle);// пользуемся четной функцией, поэтому инверсии угла поворота не замечаем
+                coord_x = coord_x*[torch radius];
+                coord_x = coord_x*boatLength;
+                coord_x = x*(1 + scaleFactor*coord_x);
+                
+                coord_y = y*(1 - scaleFactor*[[torch coord_z] floatValue]*boatLength);
+                //Отрисовка сплошным цветом
+                /*
+                CGContextSetRGBStrokeColor(ctx, 
+                                           [[[torch color] red]     floatValue],
+                                           [[[torch color] green]   floatValue],
+                                           [[[torch color] blue]    floatValue],
+                                           torch_alfa);
+                CGContextAddArc(ctx, coord_x, coord_y, 5, radians(0), radians(360), true);
+                
+                CGContextStrokePath(ctx);
+                */
+                
+                //Отрисовка градиентом
+                CGContextDrawRadialGradient(ctx, 
+                                        [torch gradient],               //массив градиента, который мы заполнили при инициализации
+                                        CGPointMake(coord_x, coord_y),  //точка отрисовки центрального градиента
+                                        torch_radius_min,               //радиус фонаря
+                                        CGPointMake(coord_x, coord_y),  //точка отрисовки периферического градиента - внешней границы
+                                        torch_radius_max,               // радиус гало от фонаря
+                                        kCGGradientDrawsBeforeStartLocation);//параметр определяет откуда начинать рисовать. Сейчас рисуется изнутри и заканчивается снаружи
+            }
         }
     }
 }
