@@ -10,4 +10,7 @@
 
 @interface LearnMenuViewController : UIViewController
 
+//Обработчик нажатия на кнопку Огни. IBAction - позволяет назначить обработчик действию в InterfaceBuilder (.xib файл)
+- (IBAction)selectTorches:(id)sender;
+
 @end

@@ -23,23 +23,24 @@
     [super dealloc];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    NSArray *boats = [[DataSingleton sharedSingleton] fetchAllItemsForEntity:@"Boat"
-                                                      andApplySortDescriptor:@""
-                                                               withAscending:YES];
-
-    if([boats count]==0)
-        [[DataSingleton sharedSingleton] addTestData];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    //заглушка, позднее - после заполнения всей базы будем просто копировать базу.
+    {
+        NSArray *boats = [[DataSingleton sharedSingleton] fetchAllItemsForEntity:@"Boat"
+                                                          andApplySortDescriptor:@""
+                                                                   withAscending:YES];
+        
+        if([boats count]==0)
+            [[DataSingleton sharedSingleton] addTestData];
+    }
     
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-//    MAinMenuViewController *viewController = [[[MAinMenuViewController alloc] initWithNibName:@"MAinMenuViewController" bundle:nil] autorelease];
 
-//    NSArray *boats = [[DataSingleton sharedSingleton] addTestData];
+    MAinMenuViewController *viewController = [[[MAinMenuViewController alloc] initWithNibName:@"MAinMenuViewController" bundle:nil] autorelease];
+
     
-    RotatingBoatViewController *viewController = [[[RotatingBoatViewController alloc] initWithNibName:@"RotatingBoatViewController" bundle:nil] autorelease];
     
     _navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = _navigationController;

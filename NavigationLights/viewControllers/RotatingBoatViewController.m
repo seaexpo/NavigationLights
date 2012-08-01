@@ -24,9 +24,10 @@ projection=_projection;
     [super dealloc];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//Переопределяем метод инициализации, чтобы просто инициализировать и не помнить кучу параметров
+- (id)init{
+    
+    self = [super initWithNibName:@"RotatingBoatViewController" bundle:nil];
     if (self) {
         // Custom initialization
     }
@@ -36,11 +37,6 @@ projection=_projection;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    NSArray *boats = [[DataSingleton sharedSingleton] fetchAllItemsForEntity:@"Boat"
-                                                      andApplySortDescriptor:@""
-                                                               withAscending:YES];
-    _boat = [boats objectAtIndex:0];
     
     for (UIGestureRecognizer *rec in [[self view] gestureRecognizers]) //переберем все
         if ([rec class]==[UILongPressGestureRecognizer class]) //найдем нужного нам типа, он будет один

@@ -7,6 +7,7 @@
 //
 
 #import "LearnMenuViewController.h"
+#import "BoatListTableViewController.h"
 
 @interface LearnMenuViewController ()
 
@@ -39,6 +40,20 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)selectTorches:(id)sender{
+
+    //инициализируем контроллер списка кораблей и помещаем его в стек UINavigationController
+    BoatListTableViewController *boatListVC = [[BoatListTableViewController alloc] init];
+    
+    //Назначим ему надпись. Делать это здесь - нормальная практика, как и в методе init BoatListViewController
+    [[boatListVC navigationItem] setTitle:@"List of boats"];
+    
+    [[self navigationController] pushViewController:boatListVC
+                                           animated:YES];
+    [boatListVC release];
+    
 }
 
 @end
